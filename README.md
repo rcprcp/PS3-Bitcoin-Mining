@@ -17,7 +17,7 @@ you really have to have an embarassingly parallel problem to get the full effect
 As it turns out calculating SHA-256 for Bitcoin Mining is a great match for the Cell/BE architecture.  
 
 TODO:
-* get better timing information for a single process version of the program.
+* get better timing information for a single process version of the program.  Bitcoin is a "double SHA256 hash" where the resulting SHA-256 is hashed again.  a single processor can do 2.5 million hashes per second, giving 1.25 million Bitcoin double hashes per second. 
 * write a test driver that can feed in more test cases.  currently one test case is hard-coded in drive.c
 * write a driver that can run the test cases in parallel.
 * continue to look at the instruction scheduling with /opt/cell/sdk/usr/bin/spu_timing
