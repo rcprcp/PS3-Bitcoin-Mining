@@ -3,11 +3,9 @@ PS3 bitcoin mining test program in assembler for Cell/BE processor.
 
 _(I know a PS3 is a slow Bitcoin mining rig by current standards, but i wanted to see if i could get it to work)_
 
-This program is written for the Cell/BE processor which is in the PS3 game console.  The Cell/BE processor is a 
-dual-core PPC (Power PC) chip, clocked at 3.2Ghz.  The PS3 have 256 Mb of memory which is not a huge amount but 
-more than enough for bitcoin mining.  
+This program is written for the Cell/BE processor which is in the PS3 game console.  The Cell/BE processor is also available in the IBM QS20 blade, which is deployed in the IBM Blade Center chassis.  This source code should be able to be used on the QS20, but you probably will have to adapt the tool chain, since the PS3 is is running a very old version of Linux.  If someone out there has a Blade Center with a QS20 blade, and would let me ssh into it, I'd be happy to port, test and scale the code.
 
-The Cell/BE chips are manufactured with 8 SPEs (Synergistic Processing Elements) attached.  
+The Cell/BE processor is a dual-core PPC (Power PC) chip, clocked at 3.2Ghz.  The PS3 has 256 Mb of memory which is not a huge amount but more than enough for bitcoin mining.  The Cell/BE chips are manufactured with 8 SPEs (Synergistic Processing Elements) attached.  
 Linux identifies 7 of the SPEs, reserves one for the System, therefore application programmers have access to 
 only 6 of the SPEs.  
 
