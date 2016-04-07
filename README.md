@@ -8,11 +8,13 @@ This program is written for the Cell/BE processor which is in the PS3 game conso
 The Cell/BE processor is a dual-core PPC (Power PC) chip, clocked at 3.2Ghz.  There is one Cell/BE in the PS3, there are 2 in an IBM QS20 blade.  The PS3 has 256 Mb of memory, which is not a huge amount of memory, but more than enough for bitcoin mining.  Cell/BE chips are manufactured with 8 SPEs (Synergistic Processing Elements) attached.  On the PS3, Linux identifies 7 of the SPEs, reserves one for the System, leaving application developers with access to 6 of the SPEs.  
 
 Each SPE is actually a 4-way vector processor which you can program in the SIMD (Single Instruction Multiple Data) model.  
-You load and store data in quadwords (4 x 32 bit words).  SIMD refers to the fact that each operation, say an add or a multiply,
-is applied to all 4 elements of the quadword simultaneously.  Each of the 4 32-bit words in the quadword are 
-referred to as lanes, and each instruction executes simultaneously on all 4 words. Given th eright problem, algorithm and implementation, vector processing executes 4 times as much work as a standard scalar processor.  
+The processor loads and stores data in quadwords (4 x 32 bit words).  SIMD refers to the fact that each operation, 
+say an add or a multiply, is applied to all 4 elements of the quadword simultaneously.  Each of the 32-bit words in 
+the quadword are referred to as lanes, and each instruction executes simultaneously on all 4 lanes. Given the 
+right problem, algorithm and implementation, vector processing executes 4 times as much work as a standard 
+scalar processor.  
 
-There are several challenges to programming the SPE processor.  First, the SPE has a very small amount of local memory - only 128k.  The SPEs do not have direct access to the PPCs memory.  in with programming the SPE processor.  The largest one, which we sidestep in Bitcoin mining, is that you have to manage data flow to the procesor itself.   
+There are several challenges to programming the SPE processor.  The SPEs do not have direct access to PPC memory. the SPE has a very small amount of local memory - only 128k.  Data is moved from the PPC memory to the SPE memory in with a sort of DMA programming.  The largest one, which we sidestep in Bitcoin mining, is that you have to manage data flow to the procesor itself.   
 The there are a few challenging aspects of SIMD programming.  One point to note is that you really have to have an embarassingly parallel problem to get the full effect of processing 4 data elements at a time.  If you have a lot of decision logic or other scalar code, you will not see a huge benefit from SIMD programming.    
 
 As it turns out calculating SHA-256 for Bitcoin Mining is a great match for the Cell/BE architecture.  
