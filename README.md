@@ -1,7 +1,7 @@
 # PS3-Bitcoin-Mining
 PS3 bitcoin mining test program in assembler for Cell/BE processor.
 
-(I know a PS3 is a slow Bitcoin mining rig by current standards, but i really wanted to see if i could get it to work)
+_(I know a PS3 is a slow Bitcoin mining rig by current standards, but i really wanted to see if i could get it to work)_
 
 This program is written for the Cell/BE processor which is in the PS3 game console.  The Cell/BE processor has 
 a dual-core PPC (Power PC) chip.  The chips are manufactured with 8 SPEs (Synergistic Processing Elements) attached.  
