@@ -14,7 +14,8 @@ the quadword are referred to as lanes, and each instruction executes simultaneou
 right problem, algorithm and implementation, vector processing executes 4 times as much work as a standard 
 scalar processor.  
 
-There are several challenges to programming the SPE processor.  The SPEs do not have direct access to PPC memory. the SPE has a very small amount of local memory - only 128k.  Data is moved from the PPC memory to the SPE memory in with a sort of DMA programming.  The largest one, which we sidestep in Bitcoin mining, is that you have to manage data flow to the procesor itself.   
+There are several challenges to programming the SPE processor.  The SPEs do not have direct access to PPC memory. the SPE has a very small amount of local memory - only 128k.  Data is moved from the PPC memory to the SPE memory in with a sort of DMA programming. We sidestep the problem in Bitcoin mining.  When mining, we pass all the data we need when invoking the function.  In bitcoin mining, where is a small chunk of data from which the SHA256 is calculated.  If the SHA256 does not meet the difficulty level, a field in the data is incrememted and the SHA256 is calculated again.
+
 The there are a few challenging aspects of SIMD programming.  One point to note is that you really have to have an embarassingly parallel problem to get the full effect of processing 4 data elements at a time.  If you have a lot of decision logic or other scalar code, you will not see a huge benefit from SIMD programming.    
 
 As it turns out calculating SHA-256 for Bitcoin Mining is a great match for the Cell/BE architecture.  
