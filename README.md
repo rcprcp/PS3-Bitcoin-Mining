@@ -11,7 +11,7 @@ Each SPE is actually a 4-way vector processor which you can program in the SIMD 
 The processor loads and stores data in quadwords (4 x 32 bit words).  SIMD refers to the fact that each operation, 
 say an add or a multiply, is applied to all 4 elements of the quadword simultaneously.  Each of the 32-bit words in 
 the quadword are referred to as lanes, and each instruction executes simultaneously on all 4 lanes. Given the 
-right problem, algorithm and implementation, vector processing executes 4 times as much work as a standard 
+right problem, algorithm and implementation, vector processing executes 4 times as much work per CPU instruction as a standard 
 scalar processor.  
 
 There are several challenges to programming the SPE processor.  The SPEs do not have direct access to PPC memory. the SPE has a very small amount of local memory - only 128k.  Data is moved from the PPC memory to the SPE memory in with a sort of DMA programming. We sidestep the problem in Bitcoin mining.  When mining, we pass all the data we need when invoking the function.  In bitcoin mining, where is a small chunk of data from which the SHA256 is calculated.  If the SHA256 does not meet the difficulty level, a field in the data is incrememted and the SHA256 is calculated again.
