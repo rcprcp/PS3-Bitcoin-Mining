@@ -25,4 +25,4 @@ TODO:
 * write a test driver that can feed in more test cases.  currently one test case is hard-coded in drive.c
 * write a driver that can run the test cases in parallel.
 * continue to look at the instruction scheduling with /opt/cell/sdk/usr/bin/spu_timing
-* better comments, as we mix the instructions for the idfferent parts of the algorithm, it _will_ get confusing. 
+* better comments, as we mix the instructions for the different parts of the algorithm, it _will_ get confusing. 
