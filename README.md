@@ -24,6 +24,14 @@ The there are a few challenging aspects of SIMD programming.  One point to note 
 As it turns out calculating SHA-256 for Bitcoin Mining is a great match for the Cell/BE architecture.  
 
 -- more to come.
+Current Test Driver:
+this is a C program with the second block (block number 1), basically hard coded into the program. the clock is formatted into a struct and passed to the assembly routine.  
+
+the assembly routine can call code from the C libraries, basically the entire thing was debugged via printf(s).  
+
+
+References:
+
 
 TODO:
 * get better timing information for a single process version of the program.  Bitcoin is a "double SHA256 hash" where the resulting SHA-256 is hashed again.  a single processor can do 2.5 million hashes per second, giving 1.25 million Bitcoin double hashes per second. 
