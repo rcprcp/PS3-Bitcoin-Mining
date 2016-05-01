@@ -25,10 +25,9 @@ As it turns out calculating SHA-256 for Bitcoin Mining is a great match for the 
 
 -- more to come.
 Current Test Driver:
-this is a C program with the second block (block number 1), basically hard coded into the program. the clock is formatted into a struct and passed to the assembly routine.  
+this is a C program with the second block (block number 1), basically hard coded into the program. the block is formatted into a struct and passed to the assembly routine.  
 
-the assembly routine can call code from the C libraries, basically the entire thing was debugged via printf(s).  
-
+the assembly routine can call code from the C libraries, basically the entire thing was debugged via printf(s), since there is no debugger which supports the SPEs available in the old version of Yellow Dog Linux (6.2) which I'm using.  
 
 References:
 
