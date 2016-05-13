@@ -21,7 +21,9 @@ In bitcoin mining the SHA256 checksum is calculated from a relatively small chun
 
 The there are a few challenging aspects of SIMD programming.  One point to note is that you really have to have an embarassingly parallel problem to get the full effect of SIMD programming - processing 4 data elements at a time.  If you have a lot of decision logic or other scalar code, you will not see a huge benefit from SIMD programming.    
 
-As it turns out calculating SHA-256 for Bitcoin Mining is a great match for the Cell/BE architecture.  
+As it turns out calculating SHA256 for Bitcoin Mining is a great match for the Cell/BE architecture.
+
+Calculating SHA256 is done in the assembly code - and the instructions need to be effectively scheduled.  Obviously the C compiler can reorder the instructions and speed up execution, this has to be done by hand when writing assembler code.  
 
 -- more to come.
 Current Test Driver:
